@@ -12,37 +12,37 @@
           <div class="input-group-prepend">
 
           </div>
-          <input type="text" class="form-control" aria-label="Text input">
+          <input type="text" class="form-control" [(ngModel)]="screen" aria-label="Text input">
         </div>
 
       </div>
       <div class="container text-center">
         <b>
           <h1>
-            <input type="button" value="1">
-            <input type="button" value="2">
-            <input type="button" value="3">
-            <input type="button" value="+">
+            <input type="button" (click)="enterValue('1')" value="1">
+            <input type="button" (click)="enterValue('2')" value="2">
+            <input type="button" (click)="enterValue('3')" value="3">
+            <input type="button" (click)="condition('+')" value="+">
           </h1>
 
           <h1>
-            <input type="button" value="4">
-            <input type="button" value="5">
-            <input type="button" value="6">
-            <input type="button" value="-">
+            <input type="button" (click)="enterValue('4')" value="4">
+            <input type="button" (click)="enterValue('5')" value="5">
+            <input type="button" (click)="enterValue('6')" value="6">
+            <input type="button" (click)="condition('-')" value="-">
           </h1>
           <h1>
-            <input type="button" value="7">
-            <input type="button" value="8">
-            <input type="button" value="9">
-            <input type="button" value="*">
+            <input type="button" (click)="enterValue('7')" value="7">
+            <input type="button" (click)="enterValue('8')" value="8">
+            <input type="button" (click)="enterValue('9')" value="9">
+            <input type="button" (click)="condition('*')" value="*">
           </h1>
 
           <h1>
-            <input type="button" value="0">
-            <input type="button" value="/">
-            <input type="button" value="=">
-            <input type="button" value="C">
+            <input type="button" (click)="enterValue('0')" value="0">
+            <input type="button" (click)="condition('/')" value="/">
+            <input type="button" (click)="result()" value="=">
+            <input type="button" (click)="clear()" value="C">
           </h1>
         </b>
       </div>
