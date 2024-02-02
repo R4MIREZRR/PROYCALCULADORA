@@ -1,0 +1,78 @@
+
+<div class="container">
+
+
+  <h1 class="text-center text-light mt-3"> <i class="fa fa-calculator" aria-hidden="true"></i> Proyecto Calculadora</h1>
+  <div class="row mt-3 bg-dark full">
+
+    <!-- Calculadora -->
+    <div class="col-sm-6 mt-2 mb-2">
+
+      <div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+
+          </div>
+          <input type="text" aria-label="Text input">
+        </div>
+
+      </div>
+      <div class="container text-center">
+        <b>
+          <h1>
+            <input type="button" value="1">
+            <input type="button" value="2">
+            <input type="button" value="3">
+            <input type="button" value="+">
+          </h1>
+
+          <h1>
+            <input type="button" value="4">
+            <input type="button" value="5">
+            <input type="button" value="6">
+            <input type="button" value="-">
+          </h1>
+          <h1>
+            <input type="button" value="7">
+            <input type="button" value="8">
+            <input type="button" value="9">
+            <input type="button" value="*">
+          </h1>
+
+          <h1>
+            <input type="button" value="0">
+            <input type="button" value="/">
+            <input type="button" value="=">
+            <input type="button" value="C">
+          </h1>
+        </b>
+      </div>
+
+    </div>
+
+    <!-- History -->
+    <div class="col-sm-6">
+
+      <div class="card bg-dark text-light" id="scroll">
+        <div class="card-title} mr-2"><i class="fa fa-history" aria-hidden="true"></i> History</div>
+        <div class="card-body scroll" data-spy="scroll" data-target="#scroll" #mostrarOperciones>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row text-center mt-2">
+    <div class="col-12">
+      <button class="btn btn-outline-secondary btn-lg mr-2 mb-2" style="text-align:center"><i class="fa fa-arrows-h" aria-hidden="true"></i> Position History</button>
+      <button class="btn btn-outline-danger btn-lg mb-2" style="text-align:center"><i class="fa fa-trash-o" aria-hidden="true"></i> Limpiar History</button>
+       <button class="btn btn-outline-warning btn-lg  mb-2 btnPosDivs" style="text-align:center"><i
+            class="fa fa-arrows-h" aria-hidden="true"></i> Cambiar Posicion</button> 			    
+</div>
+  </div>
+
+
+
+
+</div>
