@@ -14,3 +14,10 @@ body{
 .operation{
     font-size: 20px;
 }
+
+@media  screen and (width: 991px) {
+    .btnPosDivs{
+        display: none;
+    }
+
+}
