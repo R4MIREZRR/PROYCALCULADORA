@@ -1,4 +1,7 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {element} from 'protractor';
+// @ts-ignore
+import Swal from 'sweetalert2';
 
 
 @Component ({
@@ -36,6 +39,12 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
+
+  //   Verificacion de las variables del localstorage
+      this.verOperaciones = localStorage.getItem('operaciones') || [];
+
+  //     Se crear el elemento del history con las variables del storage
+      this.crearHtmlStorage();
 
   }
 
@@ -151,6 +160,68 @@ export class AppComponent implements OnInit{
         this.contenedor.querySelector('.operation').innerText = element.operacion;
         this.contenedor.querySelector('.resultOperation').innerText = element.resultado;
       });
+
+      this.sincronizarStorage();
+    }
+
+    sincronizarStorage(){
+    localStorage.setItem('operaciones', JSON.stringify(this.arrayOperaciones));
+    }
+
+    crearHtmlStorage(){
+      if(this.verOperaciones.length > 0){
+          var containerCard = document.createElement('div');
+          var verOperacion = document.createElement('p');
+          var verResultado = document.createElement('p');
+
+          containerCard.classList.add('containerCard');
+          verOperacion.classList.add('operation');
+          verResultado.classList.add('resultOperation');
+
+          containerCard.appendChild(verOperacion);
+          containerCard.appendChild(verResultado);
+
+          this.renderer.appendChild(this.mostrarOperaciones.nativeElement, containerCard);
+          this.contenedor = containerCard;
+
+          this.arrayResultados = JSON.parse(this.verOperaciones);
+          this.arrayResultados.forEach((element:any) =>{
+            this.crearHtml(element.operacion, element.resultado);
+          })
+
+      }
+    }
+
+    limpiar(){
+
+      if (this.arrayOperaciones.length > 0){
+        Swal.fire({
+            icon: 'question',
+            title: 'DESEA LIMPIAR EL HISTORIAL?',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar',
+            allowOutsideClick: false
+
+
+        }).then((result)=>{
+            localStorage.removeItem('operaciones');
+            Swal.fire({
+                icon:'success',
+                title:'El historial se limpio correctamente',
+                confirmButtonText:'Aceptar'
+            }).then((result)=>{
+                if(result.value){
+                    location.reload();
+                }
+            })
+        })
+      }else
+          Swal.fire({
+              icon:'info',
+              title:'El historial esta limpio'
+          })
     }
 
 }
