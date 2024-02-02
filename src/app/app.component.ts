@@ -40,6 +40,14 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
 
+  //     POSICION TEXTO DEL HISTORIAL INICIAL
+      this.buttonHistory = true;
+      this.btnActive = 'text-right';
+
+  //     POSICION INICIAL DE DIVS
+      this.calculadoraPos = false;
+      this.historyPos = true;
+
   //   Verificacion de las variables del localstorage
       this.verOperaciones = localStorage.getItem('operaciones') || [];
 
@@ -222,6 +230,31 @@ export class AppComponent implements OnInit{
               icon:'info',
               title:'El historial esta limpio'
           })
+    }
+    // Cambiar posicion del contenido del history
+
+    cambiarPosicion(){
+      if(this.buttonHistory){
+          this.buttonHistory = false;
+          this.btnActive = 'text-left';
+      }else {
+          this.buttonHistory = true;
+          this.btnActive = 'text-right';
+      }
+    }
+
+    cambiarPosicionDiv(){
+        if(this.calculadoraPos && !this.historyPos){
+            this.calculadoraPos = false;
+            this.historyPos = true;
+            this.estiloPos1 = '';
+            this.estiloPos2 = '';
+        }else {
+            this.calculadoraPos = true;
+            this.historyPos = false;
+            this.estiloPos1 = ' transform: translate(100%)';
+            this.estiloPos2 = ' transform: translate(-100%)';
+        }
     }
 
 }
